@@ -1,7 +1,6 @@
 # JSON-RPC for Java
 
-这个fork主要解决[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)无法正常使用Jackson的问题.
-* User/Repository#Num: jlord/sheetsee.js#26
+这个fork主要解决[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)无法正常使用Jackson的问题. 详情见[#99](https://github.com/briandilley/jsonrpc4j/issues/99)
 
 # OLD README
 This project aims to provide the facility to easily implement
