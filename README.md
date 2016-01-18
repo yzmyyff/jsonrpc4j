@@ -1,6 +1,6 @@
 # JSON-RPC for Java
 
-Õâ¸öforkÖ÷Òª½â¾ö[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)ÎŞ·¨Õı³£Ê¹ÓÃJacksonµÄÎÊÌâ.ÏêÇé¼ûbriandilley/jsonrpc4j#99.
+è¿™ä¸ªforkä¸»è¦è§£å†³[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)æ— æ³•æ­£å¸¸ä½¿ç”¨Jacksonçš„é—®é¢˜.è¯¦æƒ…è§briandilley/jsonrpc4j#99
 
 # OLD README
 This project aims to provide the facility to easily implement
