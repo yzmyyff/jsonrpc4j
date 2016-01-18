@@ -1,6 +1,6 @@
 # JSON-RPC for Java
 
-这个fork主要解决[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)无法正常使用Jackson的问题.详情见briandilley/jsonrpc4j#99
+这个fork主要解决[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)无法正常使用Jackson的问题.详情见 briandilley/jsonrpc4j#99
 
 # OLD README
 This project aims to provide the facility to easily implement
