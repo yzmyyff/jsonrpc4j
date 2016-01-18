@@ -1,5 +1,8 @@
 # JSON-RPC for Java
 
+这个fork主要解决[jsonrpc4j](https://github.com/briandilley/jsonrpc4j)无法正常使用Jackson的问题.详情见briandilley/jsonrpc4j#99.
+
+# OLD README
 This project aims to provide the facility to easily implement
 JSON-RPC for the java programming language.  jsonrpc4j uses the
 [Jackson](http://jackson.codehaus.org/) library to convert java
