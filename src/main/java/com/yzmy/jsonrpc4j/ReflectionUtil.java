@@ -203,18 +203,21 @@ public abstract class ReflectionUtil {
      * @param method the {@link Method}
      * @return the {@link Annotation}s
      */
-    public static <T extends Annotation>
-    List<List<T>> getParameterAnnotations(Method method, Class<T> type) {
-        List<List<T>> annotations = new ArrayList<List<T>>();
+    public static <T extends Annotation> List<List<T>> getParameterAnnotations(Method method, Class<T> type) {
+        List<List<T>> annotations = new ArrayList<>();
+
         for (List<Annotation> paramAnnotations : getParameterAnnotations(method)) {
-            List<T> listAnnotations = new ArrayList<T>();
+            List<T> listAnnotations = new ArrayList<>();
+
             for (Annotation a : paramAnnotations) {
                 if (type.isInstance(a)) {
                     listAnnotations.add(type.cast(a));
                 }
             }
+
             annotations.add(listAnnotations);
         }
+
         return annotations;
     }
 

@@ -12,7 +12,7 @@
 
     <properties>
         <spring.version>3.1.2.RELEASE</spring.version>
-        <jackson.version>2.5.2</jackson.version>
+        <jackson.version>2.7.0</jackson.version>
 
         <!--指定编译的的jdk版本-->
         <jdk.version>1.8</jdk.version>

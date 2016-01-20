@@ -1,10 +1,13 @@
 package com.yzmy.jsonrpc4j.jacksonfeature;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yzmy.jsonrpc4j.JsonRpcBasicServer;
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.matchers.JUnitMatchers;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.ByteArrayOutputStream;
@@ -27,9 +30,11 @@ public class JsonRpcServerTest {
 
         try {
             jsonRpcServer.handle(new ClassPathResource("jackson/jacksonDeserialize.json").getInputStream(), baos);
-            Assert.fail("必须得抛个错.");
-        } catch (Exception e) {
-            // 没抛就是错的
+            Assert.assertThat(baos.toString(), JUnitMatchers.containsString("JsonMappingException"));
+        } catch (JsonMappingException e) {
+            // 应该抛出这个错误.
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
