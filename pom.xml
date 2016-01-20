@@ -49,17 +49,18 @@
         <developerConnection>scm:git:git@github.com:briandilley/jsonrpc4j.git</developerConnection>
     </scm>
 
-    <!--
-     | Distribution config
-     +-->
+    <!--发布库-->
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>nexus-snapshots</id>
+            <name>Nexus Releases Repository</name>
+            <url>http://192.168.1.200:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
+
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>nexus-releases</id>
+            <name>Nexus Releases Repository</name>
+            <url>http://192.168.1.200:8081/nexus/content/repositories/releases</url>
         </repository>
     </distributionManagement>
 
@@ -164,25 +165,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!--
-             | GPG
-             +-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
         </plugins>
 
     </build>
