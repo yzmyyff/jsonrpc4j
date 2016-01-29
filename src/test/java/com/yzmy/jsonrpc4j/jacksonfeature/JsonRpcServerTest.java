@@ -53,4 +53,14 @@ public class JsonRpcServerTest {
             System.out.println("lalala, error!");
         }
     }
+
+    /**
+     * 测试jackson的自定义构造方法.
+     */
+    @Test
+    public void testCustomConstructor() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Custom custom = objectMapper.readValue("{\"s\":\"5\"}", Custom.class);
+        Assert.assertEquals("5", custom.toString());
+    }
 }
