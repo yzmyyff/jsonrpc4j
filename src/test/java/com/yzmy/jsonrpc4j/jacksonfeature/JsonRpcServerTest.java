@@ -40,18 +40,13 @@ public class JsonRpcServerTest {
     /**
      * 测试对空字符串的处理方式是否正确.
      */
-    @Test
-    public void testHandleEmptyString() {
+    @Test(expected = JsonMappingException.class)
+    public void testHandleEmptyString() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
         mapper.enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
-
-        try {
-            int i = mapper.readValue("\"\"", int.class);
-            System.out.println(i);
-        } catch (IOException e) {
-            System.out.println("lalala, error!");
-        }
+        mapper.readValue("\"\"", int.class);
+        Assert.fail("反序列化过程没有按照特性的描述产生行为.");
     }
 
     /**
