@@ -21,20 +21,13 @@ public class JsonRpcServerTest {
      * 测试能否正常使用Jackson的反序列化特性
      */
     @Test
-    public void testDeserialize() {
+    public void testDeserialize() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
         JsonRpcBasicServer jsonRpcServer = new JsonRpcBasicServer(mapper, new Service(), Service.class);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-        try {
-            jsonRpcServer.handle(new ClassPathResource("jackson/jacksonDeserialize.json").getInputStream(), baos);
-            Assert.assertThat(baos.toString(), JUnitMatchers.containsString("JsonMappingException"));
-        } catch (JsonMappingException e) {
-            // 应该抛出这个错误.
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        jsonRpcServer.handle(new ClassPathResource("jackson/jacksonDeserialize.json").getInputStream(), baos);
+        Assert.assertThat(baos.toString(), JUnitMatchers.containsString("JsonMappingException"));
     }
 
     /**
@@ -43,9 +36,8 @@ public class JsonRpcServerTest {
     @Test(expected = JsonMappingException.class)
     public void testHandleEmptyString() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
         mapper.enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
-        mapper.readValue("\"\"", int.class);
+        mapper.readValue("\"\"", byte.class);
         Assert.fail("反序列化过程没有按照特性的描述产生行为.");
     }
 
